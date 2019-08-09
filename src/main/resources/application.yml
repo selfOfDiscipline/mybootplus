@@ -1,0 +1,99 @@
+﻿# server服务
+server:
+  # 端口号
+  port: 8082
+  # 项目路径前缀
+  servlet:
+    context-path: /zwc
+
+# 开启swagger 是否启用
+swagger2:
+  enable: true
+
+# spring下
+spring:
+  # 数据库链接
+  datasource:
+    # serverTimezone=UTC 使用东八区日期格式；zeroDateTimeBehavior=convertToNull针对数据库timeStamp值为null的设置
+    url: jdbc:mysql://127.0.0.1:3306/bootplus?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+    #    url: jdbc:mysql://10.31.119.198:3306/myboot?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: myroot
+    # 数据库驱动  旧版com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 德鲁伊连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 数据源其他配置
+    # 连接池配置初始化大小、最小、最大
+    # 初始化时建立物理连接的个数
+    initialSize: 3
+    # 最小连接数  1
+    minIdle: 1
+    # 最大连接池数量  20
+    maxActive: 5
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒（多久运行一次空闲连接回收器）
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒    "1800000"  池中的连接空闲30分钟后被回收,默认值就是30分钟。
+    minEvictableIdleTimeMillis: 300000
+    # 验证连接是否可用，使用的SQL语句,各种数据库有各自的语句
+    validationQuery: SELECT 1
+    # 指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除.
+    testWhileIdle: true
+    # 归还连接时不要测试，否则很影响性能
+    testOnReturn: false
+    # 借出连接时不要测试，否则很影响性能
+    testOnBorrow: false
+    poolPreparedStatements: true
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,logback
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+  # springboot热部署功能的开关 true为开，false为关
+  devtools:
+    restart:
+      enabled: true
+    # 热部署默认端口是35729，不生效原因可能是其他应用占用了端口
+    livereload:
+      port: 35730
+
+  #  #Thymeleaf静态化末班引擎
+  #  thymeleaf:
+  #    mode: HTML
+  #    encoding: UTF-8
+  #    servlet:
+  #      content-type: text/html
+  #    #开发时关闭缓存，不然没法实时看到页面实时效果
+  #    cache: false
+
+  #静态资源过滤
+#  resources:
+#    static-locations: classpath:/static,classpath:/templates/*.html
+
+## pagehelper分页插件配置
+#pagehelper:
+#  # 数据库类型，根据不同数据库，pagehelper会执行不同的分页语句
+#  helper-dialect: mysql
+#  # 开启智能匹配    if 所传页数<1,则查第一页；if 所传页数>最后一页的页数，则查最后一页
+#  reasonable: true
+#  # 允许通过Mapper文件携带参数过来
+#  support-methods-arguments: true
+#  # 配置参数，默认的pageNum=pageNum,pageSize=pageSize……
+#  params: count=countSql
+
+# 扫描*Mapper.Xml文件-
+# 将所执行sql语句打印到控制台，打印级别为debug（自己的mapper包路径）
+logging:
+  level:
+    com:
+      zwc:
+        mapper: DEBUG
+
+# 扫描自定义的xml文件，如果xml文件和相应mapper在一个文件夹中，下面可不配置，否则要根据层级目录进行如下扫描配置
+mybatis-plus:
+  mapper-locations: classpath*:com/zwc/mapper/**/*Mapper.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.zwc.model

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zwc.mapper.basemapper.BaseUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zwc.model.basemodel.BaseUser">
+        <id column="id" property="id" />
+        <result column="user_name" property="userName" />
+        <result column="login_account" property="loginAccount" />
+        <result column="password" property="password" />
+        <result column="age" property="age" />
+        <result column="sex" property="sex" />
+        <result column="user_salt" property="userSalt" />
+        <result column="telephone" property="telephone" />
+        <result column="remark" property="remark" />
+        <result column="delete_flag" property="deleteFlag" />
+        <result column="create_id" property="createId" />
+        <result column="create_name" property="createName" />
+        <result column="create_time" property="createTime" />
+        <result column="edit_id" property="editId" />
+        <result column="edit_name" property="editName" />
+        <result column="edit_time" property="editTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_name, login_account, password, age, sex, user_salt, telephone, remark, delete_flag, create_id, create_name, create_time, edit_id, edit_name, edit_time
+    </sql>
+
+    <select id="selectUserList" resultType="com.zwc.model.basemodel.BaseUser">
+        select * from base_user
+    </select>
+</mapper>
