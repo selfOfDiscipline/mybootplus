@@ -18,6 +18,28 @@ public class RedisUtil {
 
     private static RedisTemplate<Object, Object> redisTemplate = (RedisTemplate<Object, Object>) SpringBeanUtil.getBean("redisTemplate");
 
+    /*
+     * @Author zwc   zwc_503@163.com
+     * @Date 15:58 2019/8/9
+     * @Param
+     * @return
+     * @Version 1.0
+     * @Description //TODO  重写常用方法
+     **/
+    public static boolean set(String key, Object value, long num, TimeUnit timeUnit) {
+        try {
+            if (num > 0) {
+                redisTemplate.opsForValue().set(key, value, num, timeUnit);
+            } else {
+                set(key, value);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     // =============================common============================
     /**
      * 指定缓存失效时间

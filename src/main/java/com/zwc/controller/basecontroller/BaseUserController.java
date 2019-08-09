@@ -5,14 +5,19 @@ import com.zwc.common.Constants;
 import com.zwc.common.JsonResponse;
 import com.zwc.model.basemodel.BaseUser;
 import com.zwc.service.baseservice.BaseUserService;
+import com.zwc.utils.JedisUtil;
+import com.zwc.utils.RedisUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @ProJectName: bootplus
@@ -27,6 +32,10 @@ public class BaseUserController {
 
     @Autowired
     private BaseUserService baseUserService;
+
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
+
 
     /*
      * @Author zwc   zwc_503@163.com
