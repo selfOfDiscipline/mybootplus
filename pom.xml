@@ -162,6 +162,16 @@
             <artifactId>druid</artifactId>
             <version>1.1.10</version>
         </dependency>
+        <!-- redis所需要jar包,这里只需引入这一个redis的依赖即可，其他3个[spring-boot-start & spring-data-redis & jedis]自动进行了依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
     </dependencies>
 
     <build>
