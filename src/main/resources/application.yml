@@ -92,7 +92,7 @@ logging:
       zwc:
         mapper: DEBUG
 
-# 扫描自定义的xml文件，如果xml文件和相应mapper在一个文件夹中，下面可不配置，否则要根据层级目录进行如下扫描配置
+# 扫描自定义的xml文件，如果xml文件和相应mapper在一个文件夹中，下面可不配置，否则要根据层级目录进行如下的扫描配置
 mybatis-plus:
   mapper-locations: classpath*:com/zwc/mapper/**/*Mapper.xml
   # 实体扫描，多个package用逗号或者分号分隔
