@@ -1,4 +1,4 @@
-package com.zwc.service.commonservice;
+package com.zwc.annotation;
 
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;

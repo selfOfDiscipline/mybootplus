@@ -5,9 +5,7 @@ import com.zwc.common.Constants;
 import com.zwc.common.JsonResponse;
 import com.zwc.model.basemodel.BaseUser;
 import com.zwc.service.baseservice.BaseUserService;
-import com.zwc.service.commonservice.RateLimit;
-import com.zwc.utils.JedisUtil;
-import com.zwc.utils.RedisUtil;
+import com.zwc.annotation.RateLimit;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -17,8 +15,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * @ProJectName: bootplus

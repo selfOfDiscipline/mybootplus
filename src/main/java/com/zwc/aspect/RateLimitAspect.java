@@ -1,10 +1,9 @@
-package com.zwc.config;
+package com.zwc.aspect;
 
 import com.google.common.collect.Maps;
 import com.google.common.util.concurrent.RateLimiter;
 import com.zwc.common.JsonResponse;
-import com.zwc.service.commonservice.RateLimit;
-import org.apache.ibatis.annotations.Results;
+import com.zwc.annotation.RateLimit;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -16,7 +15,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.transform.Result;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +41,7 @@ public class RateLimitAspect {
     /* 存放RateLimiter,一个url对应一个令牌桶*/
     private Map<String, RateLimiter> limiterMap = Maps.newConcurrentMap();
 
-    @Pointcut("@annotation(com.zwc.service.commonservice.RateLimit)")
+    @Pointcut("@annotation(com.zwc.annotation.RateLimit)")
     private void pointCut() {}
 
     @Around(value = "pointCut()")
