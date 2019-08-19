@@ -5,6 +5,7 @@ import com.zwc.common.Constants;
 import com.zwc.common.JsonResponse;
 import com.zwc.model.basemodel.BaseUser;
 import com.zwc.service.baseservice.BaseUserService;
+import com.zwc.service.commonservice.RateLimit;
 import com.zwc.utils.JedisUtil;
 import com.zwc.utils.RedisUtil;
 import io.swagger.annotations.Api;
@@ -34,8 +35,7 @@ public class BaseUserController {
     private BaseUserService baseUserService;
 
     @Autowired
-    private RedisTemplate<String, String> redisTemplate;
-
+    private RedisTemplate<String, Object> redisTemplate;
 
     /*
      * @Author zwc   zwc_503@163.com
@@ -48,8 +48,10 @@ public class BaseUserController {
     @ApiOperation(value = "查询用户", httpMethod = "GET", notes = "该方法的描述内容")
     @ApiResponses({
             @ApiResponse(code = Constants.SUCCESS, message = Constants.SUCCESS_MSG),
-            @ApiResponse(code = Constants.ERROR, message = Constants.ERROR_MSG)
+            @ApiResponse(code = Constants.ERROR, message = Constants.ERROR_MSG),
+            @ApiResponse(code = 999, message = "系统繁忙！")
     })
+    @RateLimit(permitsPerSecond = 2)
     @GetMapping("/selectUserList")
     public JsonResponse selectUserList() {
         JsonResponse jsonResponse = new JsonResponse();
