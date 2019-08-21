@@ -63,11 +63,11 @@ public class RabbitMQProducer implements RabbitTemplate.ConfirmCallback {
      **/
     @Override
     public void confirm(CorrelationData correlationData, boolean ack, String cause) {
-        logger.info("回调ID：" + correlationData);
+        logger.info("推送消息成功后回调ID：" + correlationData);
         if (ack) {
-            logger.info("消息消费成功！");
+            logger.info("消息推送成功！");
         } else {
-            logger.info("消息消费失败！原因为：" + cause);
+            logger.info("消息推送失败！原因为：" + cause);
         }
     }
 }
