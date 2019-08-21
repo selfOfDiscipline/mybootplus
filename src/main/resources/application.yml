@@ -83,6 +83,13 @@ spring:
     # 连接超时时间（毫秒）
     timeout: 5000
 
+  #配置rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: root
+    password: myroot
+
   #  #Thymeleaf静态化末班引擎
   #  thymeleaf:
   #    mode: HTML
