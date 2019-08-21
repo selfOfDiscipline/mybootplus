@@ -1,5 +1,6 @@
 package com.zwc.config;
 
+import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Binding;
@@ -14,6 +15,9 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ProJectName: bootplus
@@ -110,8 +114,13 @@ public class RabbitMQConfig {
      **/
     @Bean
     public Queue queue() {
+        Map<String, Object> map = Maps.newHashMap();
+        // 配置该队列中的消息存活时间为10分钟
+        map.put("x-message-ttl", 600000);
+        // 配置该队列中过期消息的去处
+        map.put("x-dead-letter-exchange", EX_DEAD_BOOTPLUS_QUEUE);
         // 队列持久化
-        return new Queue(BOOTPLUS_QUEUE, true);
+        return new Queue(BOOTPLUS_QUEUE, true, false, false, map);
     }
 
     /*
