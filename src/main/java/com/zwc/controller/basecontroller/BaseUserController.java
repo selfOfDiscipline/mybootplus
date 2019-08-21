@@ -1,18 +1,16 @@
 package com.zwc.controller.basecontroller;
 
+import com.zwc.annotation.RateLimit;
 import com.zwc.common.BootstrapTablePageVO;
 import com.zwc.common.Constants;
 import com.zwc.common.JsonResponse;
-import com.zwc.job.RabbitMQProducer;
 import com.zwc.model.basemodel.BaseUser;
 import com.zwc.service.baseservice.BaseUserService;
-import com.zwc.annotation.RateLimit;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
