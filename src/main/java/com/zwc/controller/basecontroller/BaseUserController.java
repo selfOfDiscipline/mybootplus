@@ -3,6 +3,7 @@ package com.zwc.controller.basecontroller;
 import com.zwc.common.BootstrapTablePageVO;
 import com.zwc.common.Constants;
 import com.zwc.common.JsonResponse;
+import com.zwc.job.RabbitMQProducer;
 import com.zwc.model.basemodel.BaseUser;
 import com.zwc.service.baseservice.BaseUserService;
 import com.zwc.annotation.RateLimit;
@@ -29,9 +30,6 @@ public class BaseUserController {
 
     @Autowired
     private BaseUserService baseUserService;
-
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
 
     /*
      * @Author zwc   zwc_503@163.com
