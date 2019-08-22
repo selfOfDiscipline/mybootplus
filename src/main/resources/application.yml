@@ -14,9 +14,9 @@ swagger2:
 spring:
   # 数据库链接
   datasource:
-    # serverTimezone=UTC 使用东八区日期格式；zeroDateTimeBehavior=convertToNull针对数据库timeStamp值为null的设置
+    # serverTimezone=UTC 使用全球标准时间日期格式；serverTimezone=Asia/Shanghai 上海时间 或者 serverTimezone=GMT%2B8 北京时间
+    # zeroDateTimeBehavior=convertToNull针对数据库timeStamp值为null的设置
     url: jdbc:mysql://127.0.0.1:3306/bootplus?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
-    #    url: jdbc:mysql://10.31.119.198:3306/myboot?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
     username: root
     password: myroot
     # 数据库驱动  旧版com.mysql.jdbc.Driver
