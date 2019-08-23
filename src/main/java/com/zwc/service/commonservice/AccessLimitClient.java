@@ -1,5 +1,7 @@
 package com.zwc.service.commonservice;
 
+import com.zwc.utils.HttpClientUtil;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
@@ -50,13 +52,15 @@ public class AccessLimitClient {
     }
 
     public void access() throws InterruptedException, MalformedURLException {
-        final URL url = new URL("http://192.168.1.97:8080/wechat/purchase/robPurchase");
+        String url = "http://192.168.1.97:8082/zwc/base/user/selectUserList";
+//        final URL url = new URL("http://192.168.1.97:8080/wechat/purchase/robPurchase");
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 500; i++) {
             executorService.submit(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("线程号：" + sendGet(url));
+                    System.out.println("线程号：" + HttpClientUtil.HttpGet(url));
+//                    System.out.println("线程号：" + sendGet(url));
                 }
             });
         }
