@@ -1,4 +1,4 @@
-package com.zwc.service.commonservice;
+package com.zwc.tests;
 
 import com.zwc.utils.HttpClientUtil;
 
