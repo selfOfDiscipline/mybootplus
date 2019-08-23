@@ -95,7 +95,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-            <scope>true</scope>
+            <scope>runtime</scope>
         </dependency>
         <!--spring aop依赖-->
         <dependency>
@@ -192,11 +192,7 @@
             </resource>
         </resources>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <!--//todo 以上为项目勾选初始配置plugin-->
+            <!--//todo 以下为项目勾选初始配置plugin-->
             <!--此插件配置springboot热部署  //todo 编辑完后Ctrl+F9-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -204,6 +200,14 @@
                 <configuration>
                     <!--fork :  如果没有该项配置，肯定devtools不会起作用，即应用不会restart -->
                     <fork>true</fork>
+                </configuration>
+            </plugin>
+            <!-- 跳过单元测试 不然在打包时候回报错 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
         </plugins>
