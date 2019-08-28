@@ -12,4 +12,14 @@ import com.zwc.model.basemodel.BaseUser;
 public interface BaseUserService {
 
     BootstrapTablePageVO<BaseUser> selectUserList();
+
+    /*
+     * @Author zwc   zwc_503@163.com
+     * @Date 17:38 2019/8/22
+     * @Param 
+     * @return 
+     * @Version 1.0
+     * @Description //TODO  新增用户
+     **/
+    void insertOrUpdateUser(BaseUser baseUser);
 }

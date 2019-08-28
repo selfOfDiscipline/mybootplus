@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @CreateTime: 2019-08-21 16:05
  * @Description: //TODO rabbitmq监听器
  **/
-@Component
+//@Component
 @RabbitListener(queues = RabbitMQConfig.BOOTPLUS_QUEUE)
 public class RabbitMQMonitor {
 
