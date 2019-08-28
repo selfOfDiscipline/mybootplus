@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zwc.mapper.bootmapper.BootHouseResourceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zwc.model.bootmodel.BootHouseResource">
+        <id column="id" property="id" />
+        <result column="room_guid" property="roomGuid" />
+        <result column="room_code" property="roomCode" />
+        <result column="proj_guid" property="projGuid" />
+        <result column="proj_child_guid" property="projChildGuid" />
+        <result column="proj_child_name" property="projChildName" />
+        <result column="bld_name" property="bldName" />
+        <result column="unit" property="unit" />
+        <result column="floor" property="floor" />
+        <result column="b_product_type_name" property="bProductTypeName" />
+        <result column="no" property="no" />
+        <result column="total" property="total" />
+        <result column="price" property="price" />
+        <result column="bld_area" property="bldArea" />
+        <result column="hu_xing" property="huXing" />
+        <result column="room_stru" property="roomStru" />
+        <result column="group_id" property="groupId" />
+        <result column="activity_id" property="activityId" />
+        <result column="gx_time" property="gxTime" />
+        <result column="delete_flag" property="deleteFlag" />
+        <result column="create_id" property="createId" />
+        <result column="create_name" property="createName" />
+        <result column="edit_id" property="editId" />
+        <result column="edit_name" property="editName" />
+        <result column="create_time" property="createTime" />
+        <result column="edit_time" property="editTime" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, room_guid, room_code, proj_guid, proj_child_guid, proj_child_name, bld_name, unit, floor, b_product_type_name, no, total, price, bld_area, hu_xing, room_stru, group_id, activity_id, gx_time, delete_flag, create_id, create_name, edit_id, edit_name, create_time, edit_time, status
+    </sql>
+
+</mapper>
