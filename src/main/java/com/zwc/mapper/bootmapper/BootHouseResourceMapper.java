@@ -1,6 +1,6 @@
-package com.zwc.mapper;
+package com.zwc.mapper.bootmapper;
 
-import com.zwc.model.BootHouseResource;
+import com.zwc.model.bootmodel.BootHouseResource;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**

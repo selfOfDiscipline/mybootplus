@@ -8,4 +8,13 @@ package com.zwc.service.bootservice;
  **/
 public interface BootHouseResourceService {
 
+    /*
+     * @Author zwc   zwc_503@163.com
+     * @Date 10:20 2019/8/28
+     * @Param
+     * @return
+     * @Version 1.0
+     * @Description //TODO 查询
+     **/
+    void selectHouseResourceList();
 }

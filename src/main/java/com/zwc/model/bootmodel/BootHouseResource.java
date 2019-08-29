@@ -1,4 +1,4 @@
-package com.zwc.model;
+package com.zwc.model.bootmodel;
 
 import com.baomidou.mybatisplus.enums.IdType;
 import java.math.BigDecimal;

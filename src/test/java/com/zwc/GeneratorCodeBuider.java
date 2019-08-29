@@ -58,7 +58,7 @@ public class GeneratorCodeBuider {
     @Test
     public void generatorCodeBuilder() {
         boolean serviceNameStart = true;
-        generatorByTables(serviceNameStart, packageName, "base_user");
+        generatorByTables(serviceNameStart, packageName, "boot_house_resource");
     }
 
     /*
