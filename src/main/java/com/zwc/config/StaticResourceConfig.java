@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Description: //TODO static静态资源文件
  **/
 @Configuration
-@EnableWebMvc
+//@EnableWebMvc
 public class StaticResourceConfig implements WebMvcConfigurer {
 
     @Override
