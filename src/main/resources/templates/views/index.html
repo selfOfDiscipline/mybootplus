@@ -9,15 +9,50 @@
     <!--    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>-->
     <!--    <script th:src="@{Bootstrap/jquery-1.9.1.min.js}"></script>-->
 
-</head>
+    <img src="../../static/js/1.png" height="82" width="82"/></head>
     页面展示！
     <input type="text">
     <button type="button" onclick="onLine()">websocket open</button>
 
-<img src="../../static/js/1.png" height="82" width="82"/></body>
 <script type="text/javascript">
+    var websocket;
+
+    // 首先判断是否 支持 WebSocket
+    if('WebSocket' in window) {
+
+        websocket = new WebSocket("ws://192.168.1.97:8082/zwc/websocket/asdf");
+    } else if('MozWebSocket' in window) {
+        websocket = new MozWebSocket("ws://192.168.1.97:8082/zwc/websocket/asdf");
+    } else {
+        websocket = new SockJS("ws://192.168.1.97:8082/zwc/websocket/asdf");
+    }
+
+    // 打开连接时
+    websocket.onopen = function(event) {
+        console.log(" websocket.onopen  ");
+    };
+
+    // 收到消息时
+    websocket.onmessage = function(event) {
+        console.log("收到一条消息" + event.data);
+        // console.log("收到一条消息" + event.data);
+        // console.log("收到一条消息" + event.data.data);
+        // alert(event.data.data);
+    };
+
+    websocket.onerror = function(event) {
+        console.log("  websocket.onerror  ");
+    };
+
+    websocket.onclose = function(event) {
+        console.log("  websocket.onclose  ");
+    };
+
     function onLine() {
+
         alert('你好');
+        websocket.send("hello");
+        console.log("发送成功");
     }
 
 </script>

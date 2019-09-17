@@ -85,10 +85,13 @@ spring:
 
   #配置rabbitmq
   rabbitmq:
-    host: 127.0.0.1
+    host: 192.168.1.77
+#    host: 127.0.0.1
     port: 5672
-    username: root
-    password: myroot
+    username: tyzq
+    password: 12345678
+#    username: root
+#    password: myroot
 
   #Thymeleaf静态化末班引擎
   thymeleaf:

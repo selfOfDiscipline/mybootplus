@@ -16,7 +16,7 @@ import java.util.UUID;
  * @CreateTime: 2019-08-21 16:06
  * @Description: //TODO rabbitMq生产者
  **/
-//@Component
+@Component
 public class RabbitMQProducer implements RabbitTemplate.ConfirmCallback {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());

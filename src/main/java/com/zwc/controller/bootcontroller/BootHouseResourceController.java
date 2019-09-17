@@ -2,6 +2,7 @@ package com.zwc.controller.bootcontroller;
 
 import com.zwc.common.Constants;
 import com.zwc.common.JsonResponse;
+import com.zwc.job.RabbitMQProducer;
 import com.zwc.service.bootservice.BootHouseResourceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +29,9 @@ public class BootHouseResourceController {
     @Autowired
     private BootHouseResourceService bootHouseResourceService;
 
+    @Autowired
+    private RabbitMQProducer rabbitMQProducer;
+
     /*
      * @Author zwc   zwc_503@163.com
      * @Date 10:18 2019/8/28
@@ -48,6 +52,34 @@ public class BootHouseResourceController {
         jsonResponse.setMessage(Constants.SUCCESS_MSG);
         try {
             bootHouseResourceService.selectHouseResourceList();
+        } catch (Exception e) {
+            jsonResponse.setCode(Constants.ERROR);
+            jsonResponse.setMessage(Constants.ERROR_MSG);
+        }
+        return jsonResponse;
+    }
+
+    /*
+     * @Author zwc   zwc_503@163.com
+     * @Date 14:59 2019/9/16
+     * @Param 
+     * @return 
+     * @Version 1.0
+     * @Description //TODO  mq发送消息
+     **/
+    @ApiOperation(value = "发送消息到mq", httpMethod = "GET", notes = "详细记录")
+    @ApiResponses({
+            @ApiResponse(code = Constants.SUCCESS, message = Constants.SUCCESS_MSG),
+            @ApiResponse(code = Constants.ERROR, message = Constants.ERROR_MSG)
+    })
+    @GetMapping(value = "/sendMsgToMq")
+    public JsonResponse sendMsgToMq() {
+        JsonResponse jsonResponse = new JsonResponse();
+        jsonResponse.setCode(Constants.SUCCESS);
+        jsonResponse.setMessage(Constants.SUCCESS_MSG);
+        try {
+            String msg = "welcome to beijing.";
+            rabbitMQProducer.sendMsg(msg);
         } catch (Exception e) {
             jsonResponse.setCode(Constants.ERROR);
             jsonResponse.setMessage(Constants.ERROR_MSG);
