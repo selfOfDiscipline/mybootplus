@@ -15,10 +15,12 @@ spring:
   # 数据库链接
   datasource:
     # serverTimezone=UTC 使用东八区日期格式；zeroDateTimeBehavior=convertToNull针对数据库timeStamp值为null的设置
-    url: jdbc:mysql://218.205.107.96:3306/notb?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://49.233.81.91:3306/notb?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://218.205.107.96:3306/notb?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
     #    url: jdbc:mysql://10.31.119.198:3306/myboot?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
     username: root
-    password: notb123
+    password: myroot
+#    password: notb123
     # 数据库驱动  旧版com.mysql.jdbc.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 德鲁伊连接池
@@ -60,28 +62,28 @@ spring:
     livereload:
       port: 35730
 
-  # 连接redis
-  redis:
-    # Redis服务器地址
-    host: 218.205.107.96
-    # Redis服务器连接端口
-    port: 6379
-    # Redis数据库索引（默认为0）
-    database: 1
-    # Redis服务器连接密码（默认为空）
-    password: myroot
-    jedis:
-      pool:
-        # 连接池最大连接数（使用负值表示没有限制）
-        max-active: 8
-        # 连接池最大阻塞等待时间（使用负值表示没有限制）
-        max-wait: 1
-        # 连接池中的最大空闲连接
-        max-idle: 8
-        # 连接池中的最小空闲连接
-        min-idle: 0
-    # 连接超时时间（毫秒）
-    timeout: 5000
+#  # 连接redis
+#  redis:
+#    # Redis服务器地址
+#    host: 218.205.107.96
+#    # Redis服务器连接端口
+#    port: 6379
+#    # Redis数据库索引（默认为0）
+#    database: 1
+#    # Redis服务器连接密码（默认为空）
+#    password: myroot
+#    jedis:
+#      pool:
+#        # 连接池最大连接数（使用负值表示没有限制）
+#        max-active: 8
+#        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+#        max-wait: 1
+#        # 连接池中的最大空闲连接
+#        max-idle: 8
+#        # 连接池中的最小空闲连接
+#        min-idle: 0
+#    # 连接超时时间（毫秒）
+#    timeout: 5000
 
   #  #Thymeleaf静态化末班引擎
   #  thymeleaf:
